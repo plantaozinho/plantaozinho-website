@@ -1,5 +1,26 @@
 <!DOCTYPE html>
-<!-- saved from url=(0062)https://plantaozinho.com/wrapbootstrap-pillarix/softek/index.html -->
+
+<script>
+  function sendMessage(event) {
+      event.preventDefault(); // Prevent the form from submitting
+  
+      const baseMessage = "Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Plant%C3%A3ozinho%20Contabilidade";
+      const userMessage = document.getElementById('userMessage').value;
+      const encodedUserMessage = encodeURIComponent(userMessage);
+      const suffixMessage = "-%20Mensagem%20enviada%20pelo%20website%20plantaozinho";
+
+  
+      const phoneNumber = "5585982029953";
+      
+      // Use baseMessage if userMessage is empty
+      const messageToSend = userMessage.trim() === "" ? `${baseMessage}%0A${suffixMessage}` : `${encodedUserMessage}%0A${suffixMessage}`;
+      
+      const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${messageToSend}&type=phone_number&app_absent=0`;
+  
+      window.open(whatsappURL, '_blank'); // Open the WhatsApp URL in a new tab
+  }
+  </script>
+
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,7 +47,7 @@
          <ul class="navbar-nav mx-auto gap-4">
            
           </ul>
-          <a href="https://api.whatsapp.com/send/?phone=5585982029953&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Plant%C3%A3ozinho%20Contabilidade&type=phone_number&app_absent=0" class="btn btn-primary px-3 ms-2 transition-3d-hover rounded-pill">
+          <a href="https://api.whatsapp.com/send/?phone=5585982029953&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Plant%C3%A3ozinho%20Contabilidade%0A-%20Mensagem%20enviada%20pelo%20website%20plantaozinho&type=phone_number&app_absent=0" class="btn btn-primary px-3 ms-2 transition-3d-hover rounded-pill">
             Fale Conosco </a> 
         </div>
       </div>
@@ -40,9 +61,9 @@
                 <span class="gradient-text fw-bold"> Contabilidade</span>
               </div>
               <p class="text-muted pb-3 lead">Contrate nossos servi&ccedil;os financeiros com seguran&ccedil;a.</p>
-              <form action="https://api.whatsapp.com/send/?phone=5585982029953&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Plant%C3%A3ozinho%20Contabilidade&type=phone_number&app_absent=0" method="GET">
+              <form id="whatsappForm" onsubmit="sendMessage(event)">
                 <div class="input-group border border-2 border-dark rounded-pill overflow-hidden bg-white p-1">
-                    <input type="text" class="form-control border-0 py-3 px-4" placeholder="Escreva sua mensagem" aria-label="Escreva sua mensagem" aria-describedby="app" required>
+                    <input type="text" id="userMessage" class="form-control border-0 py-3 px-4" placeholder="Escreva sua mensagem" aria-label="Escreva sua mensagem">
                     <button class="btn btn-primary fw-semibold rounded-pill py-3 px-5" type="submit" id="app">Fale Conosco</button>
                 </div>
             </form>
