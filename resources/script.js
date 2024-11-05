@@ -62,26 +62,26 @@ Version: 1.0
         }, 1000);
     });
 
-    // Back To Top
-    var backButton = document.createElement("button");
-    backButton.id = "back-to-top";
-    backButton.title = "Go to top";
-    backButton.textContent = "Top";
-    document.body.appendChild(backButton);
-    window.onscroll = function() {
-        scrollFunction();
-    };
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backButton.style.display = "block";
-        } else {
-            backButton.style.display = "none";
-        }
-    }
-    backButton.onclick = function() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    };
+    // // Back To Top
+    // var backButton = document.createElement("button");
+    // backButton.id = "back-to-top";
+    // backButton.title = "Go to top";
+    // backButton.textContent = "Top";
+    // document.body.appendChild(backButton);
+    // window.onscroll = function() {
+    //     scrollFunction();
+    // };
+    // function scrollFunction() {
+    //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    //         backButton.style.display = "block";
+    //     } else {
+    //         backButton.style.display = "none";
+    //     }
+    // }
+    // backButton.onclick = function() {
+    //     document.body.scrollTop = 0;
+    //     document.documentElement.scrollTop = 0;
+    // };
 
     // AOS Animation
     AOS.init();
